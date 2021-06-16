@@ -12,9 +12,9 @@ if (formula) {
 		return self.indexOf(value) === index;
 	});
 
-	for (let i = 0; i < variables.length; i++) {
+	fVariables.forEach((item) => {
 		// input nilai tiap tiap variabel nya
-		let value = prompt(`Masukkan nilai ${fVariables[i]}`);
+		let value = prompt(`Masukkan nilai ${item}`);
 		if (value.match(/\./g) !== null) {
 			value = parseFloat(value);
 		} else {
@@ -22,14 +22,13 @@ if (formula) {
 		}
 		// initValue diisi dengan key dari tiap tiap variabel
 		// dan value dari tiap tiap nilainya
-		initValue[fVariables[i]] = value;
+		initValue[item] = value;
+		console.log(initValue);
 
 		// variabel pada string formula diganti
 		// dengan nilai sesuai variabelnya
-		console.log(formula);
-		formula = formula.replace(variables[i], initValue[fVariables[i]]);
-		console.log(formula);
-	}
+		formula = formula.replaceAll(item, initValue[item]);
+	});
 	alert(`Hasilnya adalah ${eval(formula)}`);
 } else {
 	alert('Kamu belum memasukkan rumus.');
