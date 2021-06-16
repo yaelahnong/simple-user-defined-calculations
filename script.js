@@ -5,16 +5,16 @@ const initValue = {};
 let formula = prompt('Masukkan rumus perhitungan');
 if (formula) {
 	// mendapatkan variabel yang ada di formula
-	let variables = formula.match(/pi|[a-z]/g);
+	const variables = formula.match(/pi|[a-z]/g);
 
 	// menghilangkan duplikasi variabel
-	variables = variables.filter(function (value, index, self) {
+	const fVariables = variables.filter(function (value, index, self) {
 		return self.indexOf(value) === index;
 	});
 
-	variables.forEach((item) => {
+	for (let i = 0; i < variables.length; i++) {
 		// input nilai tiap tiap variabel nya
-		let value = prompt(`Masukkan nilai ${item}`);
+		let value = prompt(`Masukkan nilai ${fVariables[i]}`);
 		if (value.match(/\./g) !== null) {
 			value = parseFloat(value);
 		} else {
@@ -22,12 +22,14 @@ if (formula) {
 		}
 		// initValue diisi dengan key dari tiap tiap variabel
 		// dan value dari tiap tiap nilainya
-		initValue[item] = value;
+		initValue[fVariables[i]] = value;
 
 		// variabel pada string formula diganti
 		// dengan nilai sesuai variabelnya
-		formula = formula.replace(item, initValue[item]);
-	});
+		console.log(formula);
+		formula = formula.replace(variables[i], initValue[fVariables[i]]);
+		console.log(formula);
+	}
 	alert(`Hasilnya adalah ${eval(formula)}`);
 } else {
 	alert('Kamu belum memasukkan rumus.');
