@@ -23,13 +23,12 @@ if (formula) {
 		// initValue diisi dengan key dari tiap tiap variabel
 		// dan value dari tiap tiap nilainya
 		initValue[item] = value;
-		console.log(initValue);
 
 		// variabel pada string formula diganti
 		// dengan nilai sesuai variabelnya
 		formula = formula.replaceAll(item, initValue[item]);
 	});
-	alert(`Hasilnya adalah ${eval(formula)}`);
+	alert(`Hasil dari perhitungan ${formula} adalah ${eval(formula)}`);
 } else {
 	alert('Kamu belum memasukkan rumus.');
 }
