@@ -5,7 +5,7 @@ const initValue = {};
 let formula = prompt('Masukkan rumus perhitungan');
 if (formula) {
 	// mendapatkan variabel yang ada di formula
-	const variables = formula.match(/pi|[a-z]/g);
+	const variables = formula.match(/pi|[a-z]/gi);
 
 	// menghilangkan duplikasi variabel
 	const fVariables = variables.filter(function (value, index, self) {
@@ -14,7 +14,7 @@ if (formula) {
 
 	fVariables.forEach((item) => {
 		// input nilai tiap tiap variabel nya
-		let value = prompt(`Masukkan nilai ${item}`);
+		let value = prompt(`Masukkan nilai ${item.toLowerCase()}`);
 		if (value.match(/\./g) !== null) {
 			value = parseFloat(value);
 		} else {
