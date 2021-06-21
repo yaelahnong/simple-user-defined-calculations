@@ -5,7 +5,9 @@ const initValue = {};
 let formula = prompt('Masukkan rumus perhitungan');
 if (formula) {
 	// mendapatkan variabel yang ada di formula
-	const variables = formula.match(/pi|[a-z]/gi);
+	// const variables = formula.match(/[a-z]+/gi);
+	const variables = formula.match(/([a-zA-Z]+([0-9]+)?)/gi);
+	console.log(variables);
 
 	// menghilangkan duplikasi variabel
 	const fVariables = variables.filter(function (value, index, self) {
