@@ -1,5 +1,9 @@
 # simple-user-defined-calculations
 
+## Demo :
+
+[https://yaelahnong.github.io/simple-user-defined-calculations/](https://yaelahnong.github.io/simple-user-defined-calculations/)
+
 ## :pushpin: Steps
 
 ### 1. Masukkan rumus perhitungan menggunakan variabel, cth:
